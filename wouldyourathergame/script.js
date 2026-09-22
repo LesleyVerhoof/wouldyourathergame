@@ -81,6 +81,7 @@ function startGame() {
     selectedChoice = null;
     endScreen.style.display = 'none';
     gameContainer.style.display = 'flex';
+    optionElements.forEach(el => el.classList.remove('selected')); 
 
     renderOptions(optionElements[0], getRandomOptions());
     renderOptions(
