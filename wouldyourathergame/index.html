@@ -17,25 +17,17 @@
   </head>
 
   <body>
-    <!-- <div class="container">
-    <h1>Would You Rather Game</h1>
-    <div id="question" class="question">Eat This or That</div>
-    
-    <div class="options">
-      <button id="option1" class="option-btn">Waffles</button>
-      <button id="option2" class="option-btn">Pancakes</button>
-    </div>
-    <button id="newQuestion" class="new-question">Next</button>
-    <div id="result" class="result"></div>
-  </div> -->
-
+    <!-- ===== GAME SCREEN ===== -->
+    <!-- Main game screen: shows the title, the two food options, the Next button, and the progress bar -->
     <div class="game-container">
       <div class="title">
         <h1>Would You Rather...?</h1>
         <h3>Eat This or That</h3>
       </div>
 
+      <!-- Holds both selectable food options side by side -->
       <div class="options">
+        <!-- Option 1: image + text get filled in by JavaScript -->
         <div class="option">
           <div class="image">
             <img src="" alt="" />
@@ -43,6 +35,7 @@
           <div class="option-text"></div>
         </div>
 
+        <!-- Option 2: same structure as option 1 -->
         <div class="option">
           <div class="image">
             <img src="" alt="" />
@@ -51,28 +44,37 @@
         </div>
       </div>
 
+      <!-- Moves to the next round once a food is picked (also triggered by the spacebar) -->
       <button>Next</button>
       
+      <!-- Thin bar at the bottom of the screen that fills up as you progress -->
       <div class="progress-bar">
         <div class="progress-fill"></div>
       </div>
-
     </div>
 
+
+
+    <!-- ===== END SCREEN ===== -->
+    <!-- Hidden by default, shown once every food option has been seen -->
     <div class="end-screen">
       <h1>Thank You for Playing!</h1>
       <h3>Would You Rather...?</h3>
 
+      <!-- Fun image shown at the end, cycles through when the thumbs up button is clicked -->
       <div class="end-image">
         <img src="./end-screen-image/happyhampter.jpeg" alt="" />
       </div>
 
       <div class="end-buttons">
+        <!-- Resets the game and goes back to the game screen -->
         <button class="play-again-btn">Play Again</button>
+        <!-- Cycles to the next end-screen image and plays a little pulse animation -->
         <button class="thumbs-up-btn" aria-label="Like this image" >👍</button>
       </div>
     </div>
 
+    <!-- ===== Script ===== -->
     <script src="script.js"></script>
   </body>
 </html>

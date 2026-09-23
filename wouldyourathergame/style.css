@@ -1,20 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Caacupe+One&display=swap");
+
+
+
+/* ===== Base / Typography ===== */
+ 
+/* Page background, default font, and centers all text */
 body {
   background-color: #fde6db;
   font-family: "Caacupe One", sans-serif;
   text-align: center;
 }
 
+/* Removes the browser's default spacing around headings */
 h1,
 h3 {
   margin: 0;
   padding: 0;
 }
 
-.title {
-  padding: 24px;
-}
-
+/* Big colorful title text with a drop-shadow effect */
 h1 {
   font-size: 90px;
   color: #ef4b33;
@@ -23,67 +27,22 @@ h1 {
     2px 2px 2px rgba(109, 14, 0, 0.42);
 }
 
+/* Subtitle text under the main heading */
 h3 {
   font-size: 40px;
   color: #6d0e00;
 }
 
-.game-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Adds breathing room around the title block */
+.title {
+  padding: 24px;
 }
 
-.options {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
 
-.option {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 36px;
-  border: 2px solid #fbcb73;
-  padding: 24px 12px 6px 12px;
-  cursor: pointer;
 
-}
-
-.image {
-  width: 400px;
-  aspect-ratio: 1/1;
-  border-radius: 36px;
-  overflow: hidden;
-}
-
-.option:hover {
-  transform: scale(1.05);
-  transition: transform 0.1s ease-in-out;
-}
-
-img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 36px;
-  object-position: 50% 120%;
-}
-
-.option-text {
-  color: #ef4b33;
-  font-family: "Caacupe One", sans-serif;
-  border: none;
-  font-size: 36px;
-  padding: 10px 60px;
-}
-
-.selected {
-  background-color: #b6c471;
-  padding: 12px;
-}
-
+/* ===== Buttons (shared base) ===== */
+ 
+/* Default look for every button on the page (Next, Play Again, thumbs up) */
 button {
     color: #fde6db;
     background-color: #ef4b33;
@@ -95,6 +54,7 @@ button {
     border-radius: 12px;
 }
 
+/* Slightly grows and changes color when you hover over any button */
 button:hover {
     background-color: #b6c471;
     cursor: pointer;
@@ -102,6 +62,78 @@ button:hover {
     transition: transform 0.1s ease-in-out;
 }
 
+
+
+/* ===== GAME SCREEN ===== */
+ 
+/* Stacks the title, options, and Next button vertically and centers them */
+.game-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Places the two food options side by side with space between them */
+.options {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/* Card-style box around each food option (image + text) */
+.option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 36px;
+  border: 2px solid #fbcb73;
+  padding: 24px 12px 6px 12px;
+  cursor: pointer;
+}
+
+/* Slightly grows an option card when you hover over it */
+.option:hover {
+  transform: scale(1.05);
+  transition: transform 0.1s ease-in-out;
+}
+
+/* Fixed square container that crops each food image neatly */
+.image {
+  width: 400px;
+  aspect-ratio: 1/1;
+  border-radius: 36px;
+  overflow: hidden;
+}
+
+/* Makes every image fill its container without stretching */
+img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 36px;
+  object-position: 50% 120%;
+}
+
+/* Food name text shown under each image */
+.option-text {
+  color: #ef4b33;
+  font-family: "Caacupe One", sans-serif;
+  border: none;
+  font-size: 36px;
+  padding: 10px 60px;
+}
+
+/* Highlight style applied (via JS) to whichever option the player clicked */
+.selected {
+  background-color: #b6c471;
+  padding: 12px;
+}
+
+
+
+/* ===== Progress Bar ===== */
+ 
+/* Empty track for the progress bar, pinned to the bottom of the screen */
 .progress-bar {
   position: fixed;
   bottom: 0;
@@ -111,6 +143,7 @@ button:hover {
   background-color: #fbcb73;
 }
 
+/* Colored fill inside the track; JS updates its width as the game progresses */
 .progress-fill {
   height: 100%;
   width: 0%;
@@ -118,6 +151,11 @@ button:hover {
   transition: width 0.3s ease-in-out;
 }
 
+
+
+/* ===== END SCREEN ===== */
+ 
+/* Hidden by default; JS switches this to flex once the game ends */
 .end-screen {
   display: none;
   flex-direction: column;
@@ -126,16 +164,19 @@ button:hover {
   min-height: 100vh;
 }
 
+/* Fixed-width container for the end-screen image */
 .end-image {
   width: 500px;
   margin: 24px 0;
 }
 
+/* Makes the end-screen image fill its container without stretching */
 .end-image img {
   width: 100%;
   object-fit: cover;
 }
 
+/* Lays the Play Again and thumbs up buttons out side by side */
 .end-buttons {
   display: flex;
   align-items: center;
@@ -143,16 +184,19 @@ button:hover {
   margin-top: 24px;
 }
 
+/* Matches the thumbs up button's height/sizing to the other buttons */
 .thumbs-up-btn {
   font-size: 36px;
   line-height: 1;
   padding: 10px 24px;
 }
 
+/* Applies the pulse animation while this class is active (added/removed by JS) */
 .thumbs-up-btn.pulse {
   animation: thumbsPulse 0.4s ease-in-out;
 }
 
+/* Defines the "grow then shrink back" pulse effect used above */
 @keyframes thumbsPulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.3); }
