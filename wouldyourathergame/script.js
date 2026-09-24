@@ -29,6 +29,7 @@ const endScreenImages = [
 
 
 /* ===== DOM References ===== */
+// Document Object Model (DOM) references to elements on the page that we will need to manipulate during the game
 // Grabbing elements once here so we don't have to re-query the page every time we need them
 const optionElements = document.querySelectorAll('.option'); // both food option cards
 const nextButton = document.querySelector('.game-container button'); // the "Next" button
